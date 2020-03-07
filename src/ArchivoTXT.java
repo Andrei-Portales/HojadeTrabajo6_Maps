@@ -10,11 +10,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class ArchivoTXT {
 	
-	
-	
-	
-	
-	
 	/**
 	 * Funcion para obtener la ruta de el archivo txt
 	 * @return
