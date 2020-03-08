@@ -25,10 +25,8 @@ public class Controller {
 		try {
 			String[] data = ArchivoTXT.leerTXT(ArchivoTXT.getPath());
 			for (String d:data) {
-				String[] p = d.toString().split("|");
-				
-				//map.put(d.split("|")[0], d.split("|")[1]);
-				System.out.println(Arrays.toString(p));
+				String[] p = getSplit(d,"|");
+				map.put(p[0],p[1]);
 			}
 		}catch(Exception e) {
 			JOptionPane.showMessageDialog(null, "No se pudo llenar el mapa");
@@ -36,10 +34,51 @@ public class Controller {
 	}
 	
 	public void print() {
-		Collection<String> as = map.values();
-		
-		System.out.println(Arrays.toString(as.toArray()));
 		
 	}
+	
+	/**
+	 * Funcion para separa el string a clave y valor
+	 * @param texto
+	 * @param separador
+	 * @return
+	 */
+	private String[] getSplit(String texto, String separador) {
+		String[] retorno = new String[] {"",""}; 
+		String[] s = texto.split("");
+		int pos = 0;
+		for (String h: s) {
+			if (!h.equals("|"))
+				retorno[pos] += h;
+			if (h.equals("|"))
+				pos++;
+		}
+		return retorno;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
