@@ -153,7 +153,7 @@ public class Main {
 			public void actionPerformed(ActionEvent arg0) {
 				//try {
 				control.fillMap();
-				panel_1.setVisible(true);
+				
 				setCardTable();
 				fillTypesTables();
 				//}catch(Exception ex) {
@@ -166,7 +166,7 @@ public class Main {
 		
 		panel_1 = new JPanel();
 		panel_1.setBackground(Color.WHITE);
-		panel_1.setVisible(false);
+
 		panel_1.setBounds(22, 75, 1235, 685);
 		Principal.add(panel_1);
 		panel_1.setLayout(null);
