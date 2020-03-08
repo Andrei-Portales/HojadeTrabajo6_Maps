@@ -31,11 +31,11 @@ public class ArchivoTXT {
 		String path = "";
 		
 		try {
-	    chooser.setCurrentDirectory(f);
-	    chooser.setCurrentDirectory(null);
-	    chooser.showOpenDialog(null);
+			chooser.setCurrentDirectory(f);
+			chooser.setCurrentDirectory(null);
+			chooser.showOpenDialog(null);
 	    
-	    path = chooser.getSelectedFile().toString();
+			path = chooser.getSelectedFile().toString();
 		}catch(Exception e) {
 			
 		}

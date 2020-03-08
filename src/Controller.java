@@ -58,7 +58,7 @@ public class Controller {
 			if (h.equals("|") || h.equals(" |")) {
 				pos++;
 			}else {
-				retorno[pos] +=h;
+				retorno[pos] += h;
 			}
 				
 		}
