@@ -48,30 +48,24 @@ public class ArchivoTXT {
 	 * Funcion para leer el txt
 	 * @return
 	 */
-	public static String[] leerTXT(String path) {
+	public static ArrayList<String> leerTXT(String path) {
 		
 		File archivo = new File(path);
 		FileReader fr;
 		BufferedReader br;
+		ArrayList<String> lineas = new ArrayList<String>();
 		
-		String[] retorno = null;
 		try {
 			
 			fr = new FileReader(archivo);
 			br = new BufferedReader(fr);
 			
-			ArrayList<String> lineas = new ArrayList<String>();
+			
 			String linea = "";
 			
 			while((linea = br.readLine()) != null) {
 				lineas.add(linea);
 				
-			}
-			
-			retorno = new String[lineas.size()];
-			
-			for (int i = 0; i<= lineas.size() - 1;i++) {
-				retorno[i] = lineas.get(i);
 			}
 			
 			
@@ -83,7 +77,7 @@ public class ArchivoTXT {
 			JOptionPane.showMessageDialog(null, "Ha sucedido un error leyendo el archivo " + e);
 		}
 		
-		return retorno;
+		return lineas;
 	}
 
 }
