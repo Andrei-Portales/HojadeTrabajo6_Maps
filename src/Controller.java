@@ -74,7 +74,9 @@ public class Controller {
 				ap.add(i);
 			}
 		}
-		return  ap.toArray();
+		Object[] data = ap.toArray();
+		Arrays.sort(data);
+		return  data;
 	}
 	
 	public int getTypeSize(String type) {
@@ -111,7 +113,9 @@ public class Controller {
 		while(it.hasNext()){
 		  data.add(it.next().toString());
 		}
-		return data.toArray();
+		Object[] dat = data.toArray();
+		Arrays.sort(dat);
+		return dat;
 	}
 	
 	

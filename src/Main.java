@@ -210,7 +210,7 @@ public class Main {
 		model.setColumnIdentifiers(new String[] {"Carta","Tipo"});
 		model.setRowCount(control.getMapSize());
 		Object[] list = control.getKeysMap();
-		Arrays.sort(list);
+		
 		for (int i = 0;i< list.length;i++) {
 			model.setValueAt(list[i], i, 0);
 			model.setValueAt(control.getType((String)list[i]), i, 1);
@@ -224,7 +224,7 @@ public class Main {
 		model.setRowCount(control.getTypeSize("Monstruo"));
 		model.setColumnIdentifiers(new String[] {"Monstruos"});
 		Object[] list1 = control.getListType("Monstruo");
-		Arrays.sort(list1);
+		
 		for (int i = 0;i< list1.length;i++) {
 			model.setValueAt(list1[i], i, 0);
 		}
@@ -234,7 +234,7 @@ public class Main {
 		model1.setRowCount(control.getTypeSize("Hechizo"));
 		model1.setColumnIdentifiers(new String[] {"Hechizos"});
 		list1 =  control.getListType("Hechizo");
-		Arrays.sort(list1);
+		
 		for (int i = 0;i< list1.length;i++) {
 			model1.setValueAt(list1[i], i, 0);
 		}
@@ -244,7 +244,7 @@ public class Main {
 		model2.setRowCount(control.getTypeSize("Trampa"));
 		model2.setColumnIdentifiers(new String[] {"Trampas"});
 		list1 =  control.getListType("Trampa");
-		Arrays.sort(list1);
+		
 		for (int i = 0;i< list1.length;i++) {
 			model2.setValueAt(list1[i], i, 0);
 		}
