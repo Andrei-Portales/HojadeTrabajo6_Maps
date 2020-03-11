@@ -10,20 +10,28 @@ import javax.swing.JOptionPane;
 public class Controller {
 
 	private Map<String, String> map;
+	private Map<String, String> userData;
+	
 	private Factory<String,String> factory;
+	
 	
 	
 	
 	
 	public Controller() {
 		map = null;
+		userData = null;
 		factory = new Factory<String,String>();
 	}
 	
 	
-	
+	/**
+	 * Metodo que establece, mediante el patron factory, la implementacion de mapa que se utilizara 
+	 * @param map, tipo de mapa
+	 */
 	public void setMap(String map) {
 		this.map = factory.getMap(map);
+		this.userData = factory.getMap(map);
 	}
 	
 	/**
@@ -118,27 +126,6 @@ public class Controller {
 		Arrays.sort(dat);
 		return dat;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 }

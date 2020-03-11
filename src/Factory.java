@@ -5,7 +5,7 @@ import java.util.TreeMap;
 
 public class Factory<A,E> {
 
-	public Map getMap(String map) {
+	public Map<A, E> getMap(String map) {
 		
 		switch (map) {
 		case "HashMap":
