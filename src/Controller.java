@@ -126,6 +126,20 @@ public class Controller {
 		Arrays.sort(dat);
 		return dat;
 	}
-
+	
+	
+	
+	public String[] getUserCards() {
+		ArrayList<String> data = new ArrayList<String>();
+		Iterator it = userData.keySet().iterator();
+		while(it.hasNext()){
+		  data.add(it.next().toString());
+		}
+		String[] dat = new String[data.size()];
+		//dat = data.toArray(dat);
+		data.toArray(dat);  //Si tira error eliminar esta linea y dejar la anterior
+		Arrays.sort(dat);
+		return dat;
+	}
 	
 }
