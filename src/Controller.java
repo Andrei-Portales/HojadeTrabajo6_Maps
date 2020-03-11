@@ -131,7 +131,7 @@ public class Controller {
 	
 	public String[] getUserCards() {
 		ArrayList<String> data = new ArrayList<String>();
-		Iterator it = userData.keySet().iterator();
+		Iterator it = userData.values().iterator();     // 
 		while(it.hasNext()){
 		  data.add(it.next().toString());
 		}
@@ -141,5 +141,31 @@ public class Controller {
 		Arrays.sort(dat);
 		return dat;
 	}
+	
+	
+	/**
+	 * 
+	 * @param key
+	 * @throws IllegalArgumentException
+	 */
+	public void insertCard(String key) throws IllegalArgumentException{
+		
+		if(map.containsKey(key)) {
+			userData.put(key,map.remove(key));
+			
+		}
+		else {
+			throw new IllegalArgumentException("La carta ingresada no esta en el deck global");
+		}
+		
+	}
+	
+	
+	
+	public String CardSearch() {
+		
+		return CardSearch();
+	}
+	
 	
 }
