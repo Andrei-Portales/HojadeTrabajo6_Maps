@@ -153,6 +153,7 @@ public class Main {
 			public void actionPerformed(ActionEvent arg0) {
 				//try {
 				control.fillMap();
+	
 				
 				setCardTable();
 				fillTypesTables();

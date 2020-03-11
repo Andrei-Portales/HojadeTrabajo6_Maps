@@ -79,6 +79,7 @@ public class Controller {
 		return  data;
 	}
 	
+	
 	public int getTypeSize(String type) {
 		int r = 0;
 		Set<String> as = map.keySet();
