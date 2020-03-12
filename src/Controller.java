@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.Comparator;
 
 import javax.swing.JOptionPane;
@@ -14,7 +15,7 @@ public class Controller {
 	private Map<String, String> userData;
 	
 	private Factory<String,String> factory;
-	
+	private Object[] llaves;
 	
 	
 	
@@ -23,6 +24,7 @@ public class Controller {
 		map = null;
 		userData = null;
 		factory = new Factory<String,String>();
+		llaves = null;
 	}
 	
 	
@@ -47,9 +49,18 @@ public class Controller {
 				map.put(p[0],p[1]);	
 			}	
 			
+			llaves = map.keySet().toArray();
 		}catch(Exception e) {
 			JOptionPane.showMessageDialog(null, "No se pudo llenar el mapa");
 		}
+	}
+	
+	/**
+	 * retornar llaves para mostrar al usuario
+	 * @return
+	 */
+	public Object[] getKEys() {
+		return llaves;
 	}
 	
 	/**
@@ -93,6 +104,7 @@ public class Controller {
 	}
 	
 	
+	
 	public int getTypeSize(String type) {
 		int r = 0;
 		Set<String> as = map.keySet();
@@ -111,22 +123,30 @@ public class Controller {
 	 * @throws IllegalArgumentException
 	 */
 	public String getType(String nombreCarta) throws IllegalArgumentException{        
-		String tipo = "";                              
+		String tipo = null;                              
 			if(map.containsKey(nombreCarta))
 				tipo = map.get(nombreCarta);
 			else if (userData.containsKey(nombreCarta))
 				tipo = userData.get(nombreCarta);
-			else
-				throw new IllegalArgumentException("La carta buscada no existe");
-			
-			
 		return tipo;
 	}
 	
+	/**
+	 * Retorna el size del mapa 
+	 * @return
+	 */
 	public int getMapSize() {
 		return map.size();
 	}
 	
+	
+	/**
+	 * Retorna el size del mapa 
+	 * @return
+	 */
+	public int getMapSizeUser() {
+		return userData.size();
+	}
 	public Object[] getKeysMap() {
 		ArrayList<String> data = new ArrayList<String>();
 		Iterator it = map.keySet().iterator();
@@ -175,7 +195,7 @@ public class Controller {
 	 * ordena las llaves del manojo del usuario por tipo
 	 * @return array de tipo object con llaves
 	 */
-	public Object getUserKeysOrderedByValue() {
+	public Object[] getUserKeysOrderedByValue() {
 		ArrayList<String> data = new ArrayList<String>();
 		ArrayList<String> dataHechizo = new ArrayList<String>();
 		ArrayList<String> dataMounstro = new ArrayList<String>();
@@ -204,6 +224,23 @@ public class Controller {
 	
 	
 	/**
+	 * Obtener cantidad de tipo de carta 
+	 * @param type
+	 * @return
+	 */
+	public int getTypeSizeUser(String type) {
+		int r = 0;
+		Set<String> as = userData.keySet();
+		for (String i: as) {
+			if (userData.get(i).equals(type)) {
+				r++;
+			}
+		}
+		return r;
+	}
+	
+	
+	/**
 	 * Inserta la carta buscada en el deck del usuario
 	 * @param key to search
 	 * @throws IllegalArgumentException
@@ -211,8 +248,8 @@ public class Controller {
 	public void insertCard(String key) throws IllegalArgumentException{
 		
 		if(map.containsKey(key)) {
-			userData.put(key,map.remove(key));
 			
+			userData.put(key,map.remove(key));
 		}
 		else {
 			throw new IllegalArgumentException("La carta ingresada no esta en el deck global");
@@ -220,7 +257,23 @@ public class Controller {
 		
 	}
 	
-	
+	/**
+	 * 
+	 * @param type
+	 * @return obtiene el tipo de la carta
+	 */
+	public Object[] getListTypeUser(String type) {
+		ArrayList<String> ap = new ArrayList<String>();
+		Set<String> as = userData.keySet();
+		for (String i: as) {
+			if (userData.get(i).equals(type)) {
+				ap.add(i);
+			}
+		}
+		Object[] data = ap.toArray();
+		Arrays.sort(data);
+		return  data;
+	}
 	
 	
 }
