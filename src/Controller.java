@@ -104,7 +104,11 @@ public class Controller {
 	}
 	
 	
-	
+	/**
+	 * obtener la cantidad de cartas de un tipo
+	 * @param type
+	 * @return
+	 */
 	public int getTypeSize(String type) {
 		int r = 0;
 		Set<String> as = map.keySet();

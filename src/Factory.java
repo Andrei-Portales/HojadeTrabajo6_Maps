@@ -5,6 +5,11 @@ import java.util.TreeMap;
 
 public class Factory<A,E> {
 
+	/**
+	 * Funcion que retorna la instancia del mapa requerido
+	 * @param map
+	 * @return
+	 */
 	public Map<A, E> getMap(String map) {
 		
 		switch (map) {
