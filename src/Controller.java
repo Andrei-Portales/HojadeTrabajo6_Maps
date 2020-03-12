@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.Comparator;
 
 import javax.swing.JOptionPane;
 
@@ -73,7 +74,11 @@ public class Controller {
 		return retorno;
 		
 	}
-	
+	/**
+	 * 
+	 * @param type
+	 * @return obtiene el tipo de la carta
+	 */
 	public Object[] getListType(String type) {
 		ArrayList<String> ap = new ArrayList<String>();
 		Set<String> as = map.keySet();
@@ -104,11 +109,16 @@ public class Controller {
 	 * @param nombreCarta
 	 * @return
 	 */
-	public String getType(String nombreCarta) {
-		String tipo = "";
-		try {
-			tipo = map.get(nombreCarta);
-		}catch(Exception e) {}
+	public String getType(String nombreCarta) throws IllegalArgumentException{        
+		String tipo = "";                              
+			if(map.containsKey(nombreCarta))
+				tipo = map.get(nombreCarta);
+			else if (userData.containsKey(nombreCarta))
+				tipo = userData.get(nombreCarta);
+			else
+				throw new IllegalArgumentException("La carta buscada no existe en el deck global");
+			
+			
 		return tipo;
 	}
 	
@@ -127,19 +137,68 @@ public class Controller {
 		return dat;
 	}
 	
-	
-	
-	public String[] getUserCards() {
+	  
+	/**
+	 * ordena las llaves del manojo global por tipo
+	 * @return array de tipo object con llaves
+	 */
+	public Object getDeckKeysOrderedByValue() {
 		ArrayList<String> data = new ArrayList<String>();
-		Iterator it = userData.values().iterator();     // 
-		while(it.hasNext()){
-		  data.add(it.next().toString());
+		ArrayList<String> dataHechizo = new ArrayList<String>();
+		ArrayList<String> dataMounstro = new ArrayList<String>();
+		ArrayList<String> dataTrampa = new ArrayList<String>();
+		
+		for (Map.Entry<String, String> carta : map.entrySet()) {
+			if (carta.getValue().equals("Hechizo")) {
+				dataHechizo.add(carta.getKey());
+			}
+			if (carta.getValue().equals("Monstruo")) {
+				dataMounstro.add(carta.getKey());
+			}
+			if (carta.getValue().equals("Trampa")) {
+				dataTrampa.add(carta.getKey());
+			}
 		}
-		String[] dat = new String[data.size()];
-		//dat = data.toArray(dat);
-		data.toArray(dat);  //Si tira error eliminar esta linea y dejar la anterior
-		Arrays.sort(dat);
-		return dat;
+		
+		data.addAll(dataHechizo);
+		data.addAll(dataMounstro);
+		data.addAll(dataTrampa);
+		
+		
+		
+		return data.toArray();
+	}
+	
+	
+	/**
+	 * ordena las llaves del manojo del usuario por tipo
+	 * @return array de tipo object con llaves
+	 */
+	public Object getUserKeysOrderedByValue() {
+		ArrayList<String> data = new ArrayList<String>();
+		ArrayList<String> dataHechizo = new ArrayList<String>();
+		ArrayList<String> dataMounstro = new ArrayList<String>();
+		ArrayList<String> dataTrampa = new ArrayList<String>();
+		
+		for (Map.Entry<String, String> carta : userData.entrySet()) {
+			if (carta.getValue().equals("Hechizo")) {
+				dataHechizo.add(carta.getKey());
+			}
+			if (carta.getValue().equals("Monstruo")) {
+				dataMounstro.add(carta.getKey());
+			}
+			if (carta.getValue().equals("Trampa")) {
+				dataTrampa.add(carta.getKey());
+			}
+		}
+		
+		data.addAll(dataHechizo);
+		data.addAll(dataMounstro);
+		data.addAll(dataTrampa);
+		
+		
+		
+		return data.toArray();
 	}
 	
 	
@@ -161,11 +220,6 @@ public class Controller {
 	}
 	
 	
-	
-	public String CardSearch() {
-		
-		return CardSearch();
-	}
 	
 	
 }
