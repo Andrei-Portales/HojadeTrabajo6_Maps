@@ -54,6 +54,14 @@ public class Main {
 	private JPanel panel_3;
 	private JTextField txtagregarCartaUsuario;
 	private JLabel lblAgregarCartaA;
+	private JLabel c1;
+	private JLabel c2;
+	private JLabel c3;
+	private JLabel c4;
+	private JLabel c5;
+	private JLabel c6;
+	private JLabel c7;
+	private JLabel c8;
 	/**
 	 * Launch the application.
 	 */
@@ -96,7 +104,7 @@ public class Main {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(192, 192, 192));
-		panel.setBounds(357, 216, 379, 253);
+		panel.setBounds(428, 216, 379, 253);
 		ElegirMap.add(panel);
 		panel.setLayout(null);
 		
@@ -179,6 +187,7 @@ public class Main {
 				fillTypesTables();
 				setCardTableUsuario();
 				fillTypesTablesUser();
+				UpdateSizes();
 				
 				}catch(Exception ex) {
 					JOptionPane.showMessageDialog(null, "No se pudo leer el archivo txt");
@@ -281,6 +290,7 @@ public class Main {
 					fillTypesTables();
 					setCardTableUsuario();
 					fillTypesTablesUser();
+					UpdateSizes();
 					
 				}
 			}
@@ -288,7 +298,59 @@ public class Main {
 		btnNewButton_2.setBackground(Color.WHITE);
 		btnNewButton_2.setBounds(236, 49, 97, 25);
 		panel_3.add(btnNewButton_2);
+		
+		c1 = new JLabel("Cantidad:");
+		c1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		c1.setBounds(162, 129, 165, 27);
+		panel_1.add(c1);
+		
+		c2 = new JLabel("Cantidad:");
+		c2.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		c2.setBounds(508, 129, 144, 27);
+		panel_1.add(c2);
+		
+		c3 = new JLabel("Cantidad:");
+		c3.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		c3.setBounds(766, 129, 165, 27);
+		panel_1.add(c3);
+		
+		c4 = new JLabel("Cantidad:");
+		c4.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		c4.setBounds(1034, 129, 151, 27);
+		panel_1.add(c4);
+		
+		c5 = new JLabel("Cantidad:");
+		c5.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		c5.setBounds(162, 413, 165, 27);
+		panel_1.add(c5);
+		
+		c6 = new JLabel("Cantidad:");
+		c6.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		c6.setBounds(516, 413, 136, 27);
+		panel_1.add(c6);
+		
+		c7 = new JLabel("Cantidad:");
+		c7.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		c7.setBounds(766, 413, 144, 27);
+		panel_1.add(c7);
+		
+		c8 = new JLabel("Cantidad:");
+		c8.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		c8.setBounds(1034, 413, 151, 27);
+		panel_1.add(c8);
 		txtTIpoEspecifico.getDocument().addDocumentListener(new MyDocumentListener());
+	}
+	
+	private void UpdateSizes() {
+		c1.setText("Cantidad: " + control.getMapSize());
+		c2.setText("Cantidad: " + control.getTypeSize("Monstruo"));
+		c3.setText("Cantidad: " + control.getTypeSize("Hechizo"));
+		c4.setText("Cantidad: " + control.getTypeSize("Trampa"));
+		
+		c5.setText("Cantidad: " + control.getMapSizeUser());
+		c6.setText("Cantidad: " + control.getTypeSizeUser("Monstruo"));
+		c7.setText("Cantidad: " + control.getTypeSizeUser("Hechizo"));
+		c8.setText("Cantidad: " + control.getTypeSizeUser("Trampa"));
 	}
 	
 	private void AutoCompleteFill() {
