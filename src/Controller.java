@@ -107,7 +107,8 @@ public class Controller {
 	/**
 	 * Funcion que retorna el tipo de la carta ingresada
 	 * @param nombreCarta
-	 * @return
+	 * @return el tipo de la carta
+	 * @throws IllegalArgumentException
 	 */
 	public String getType(String nombreCarta) throws IllegalArgumentException{        
 		String tipo = "";                              
@@ -116,7 +117,7 @@ public class Controller {
 			else if (userData.containsKey(nombreCarta))
 				tipo = userData.get(nombreCarta);
 			else
-				throw new IllegalArgumentException("La carta buscada no existe en el deck global");
+				throw new IllegalArgumentException("La carta buscada no existe");
 			
 			
 		return tipo;
@@ -203,8 +204,8 @@ public class Controller {
 	
 	
 	/**
-	 * 
-	 * @param key
+	 * Inserta la carta buscada en el deck del usuario
+	 * @param key to search
 	 * @throws IllegalArgumentException
 	 */
 	public void insertCard(String key) throws IllegalArgumentException{
