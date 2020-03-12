@@ -167,6 +167,7 @@ public class Main {
 				
 			}
 		});
+		
 		rdbtnLinkedhashmap.setBackground(Color.LIGHT_GRAY);
 		rdbtnLinkedhashmap.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		rdbtnLinkedhashmap.setBounds(106, 130, 193, 25);
