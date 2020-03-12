@@ -62,6 +62,8 @@ public class Main {
 	private JLabel c6;
 	private JLabel c7;
 	private JLabel c8;
+	private JLabel lblNewLabel_1;
+	private JLabel lblGeneral;
 	/**
 	 * Launch the application.
 	 */
@@ -338,6 +340,16 @@ public class Main {
 		c8.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		c8.setBounds(1034, 413, 151, 27);
 		panel_1.add(c8);
+		
+		lblNewLabel_1 = new JLabel("Usuario:");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1.setBounds(12, 413, 84, 27);
+		panel_1.add(lblNewLabel_1);
+		
+		lblGeneral = new JLabel("General:");
+		lblGeneral.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblGeneral.setBounds(12, 135, 84, 27);
+		panel_1.add(lblGeneral);
 		txtTIpoEspecifico.getDocument().addDocumentListener(new MyDocumentListener());
 	}
 	
